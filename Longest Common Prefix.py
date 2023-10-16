@@ -1,20 +1,14 @@
 def prefix(list_string: list):
-    """Поиск максимального префикса строки"""
-    i = 0
-    char_list = []
-    while True:
-        for n in list_string:
-            if not char_list:
-                char_list.append(n[i])
-                continue
-            if n[i] not in char_list:
-                return char_list
-            else:
-                continue
-        i += 1
-
+    prefix = list_string[0]
+    i = 1
+    while i < len(list_string):
+        if list_string[i].startswith(prefix):
+            i += 1
+        else:
+            prefix = prefix[:-1]
+    return prefix
 
 
 if __name__ == "__main__":
-    print(prefix(["flower", "flow", "flight"]))
+    print(prefix(["c","acc","ccc"]))
 
